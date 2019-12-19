@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>购物</title>
+    <meta name="keywords" content="HTML, CSS, XML, XHTML, JavaScript">
+    <meta name="author" content="zhngxl">
+    <style>
+        .bg_color{
+            position: fixed;
+            left: 0; top: 0;
+            right: 0;bottom: 0;
+            background-color: #f1f1f1;
+        }
+        .right_div{
+            margin-top: 15px;
+            margin-right: 20px;
+            float: right;
+            background-color: white;
+            height: 90%;
+            width: 50px;
+        }
+        .center_div{
+            margin-top: 15px;margin-left: 10px;
+            float: left;height: 225px;
+            width: 80%;
+            /*background-color: #BFE7FA;*/
+            border: red solid 1px;
+        }
+        .line{
+            display:inline-block;
+            box-sizing:border-box;
+            margin-top: 0;
+            width: 10px;
+            height: 15px;
+            background: yellow;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+<div class="bg_color" >
+    <div style="margin-top: 15px;margin-left: 10px;float: left">
+        <img src="Picture/cat.jpg" alt="" width="120" height="213" usemap="#clickPicture">
+        <map name="clickPicture">
+            <area shape="rect" coords="0,0,120,213" alt="" href="https://www.baidu.com/">
+        </map>
+    </div>
+    <div id="all_id" class="center_div">
+        <div id="id_1" style="float: left">
+            <img style="margin: 5px" src="Picture/cat.jpg" alt="" width="120" height="213" usemap="#clickPicture">
+            <map name="clickPicture">
+                <area shape="rect" coords="0,0,120,213" alt="" href="https://www.baidu.com/">
+            </map>
+        </div>
+        <div id="id_2" style="float: left">
+            <img style="margin: 5px" src="Picture/a1.jpg" alt="" width="120" height="213" usemap="#clickPicture">
+            <map name="clickPicture">
+                <area shape="rect" coords="0,0,120,213" alt="" href="https://www.baidu.com/">
+            </map>
+        </div>
+        <div id="id_3" style="float: left">
+            <img style="margin: 5px" src="Picture/a2.png" alt="" width="120" height="213" usemap="#clickPicture">
+            <map name="clickPicture">
+                <area shape="rect" coords="0,0,120,213" alt="" href="https://www.baidu.com/">
+            </map>
+        </div>
+
+        <div id="id_4" style="float: left">
+            <img style="margin: 5px" src="Picture/a3.jpeg" alt="" width="120" height="213" usemap="#clickPicture">
+            <map name="clickPicture">
+                <area shape="rect" coords="0,0,120,213" alt="" href="https://www.baidu.com/">
+            </map>
+        </div>
+        <div id="id_5" style="float: left">
+            <img style="margin: 5px" src="Picture/a4.jpg" alt="" width="120" height="213" usemap="#clickPicture">
+            <map name="clickPicture">
+                <area shape="rect" coords="0,0,120,213" alt="" href="https://www.baidu.com/">
+            </map>
+        </div>
+
+        <div id="id_6" style="float: left">
+            <img style="margin: 5px" src="Picture/a5.jpg" alt="" width="120" height="213" usemap="#clickPicture">
+            <map name="clickPicture">
+                <area shape="rect" coords="0,0,120,213" alt="" href="https://www.baidu.com/">
+            </map>
+        </div>
+    </div>
+    <div class="right_div">
+        <div style="margin: 13px" >
+            <p style="font-size: 12px">京东秒杀</p>
+            <hr style="width: 25px;color: #b3b3b3">
+        </div>
+        <div style="margin: 13px" >
+            <p style="font-size: 12px">11.11会场</p>
+            <hr style="width: 25px;color: #b3b3b3">
+        </div>
+        <div style="margin: 13px" >
+            <p style="font-size: 12px">特色优选</p>
+            <hr style="width: 25px;color: #b3b3b3">
+        </div>
+        <div style="margin: 13px" >
+            <p style="font-size: 12px">频道广场</p>
+            <hr style="width: 25px;color: #b3b3b3">
+        </div>
+        <div style="margin: 13px" >
+            <p style="font-size: 12px">为你推荐</p>
+            <hr style="width: 25px;color: #b3b3b3">
+        </div>
+        <div style="margin: 13px" >
+            <p style="font-size: 12px">客服客服</p>
+            <hr style="width: 25px;color: #b3b3b3">
+        </div>
+        <div style="margin: 13px" >
+            <p style="font-size: 12px">反馈反馈</p>
+            <hr style="width: 25px;color: #b3b3b3">
+        </div>
+
+    </div>
+<script>
+    function ChangeMenu(num) {
+            var current_menu = document.getElementById(num);
+            var item_list = current_menu.parentElement.parentElement.children;
+            for(var i=0;i<item_list.length;i++){
+                var current_item = item_list[i];
+                current_item.children[1].classList.add('hide');
+            }
+            current_menu.nextElementSibling.classList.remove('hide');
+        }
+    function func(){
+        // 根据ID获取指定标签的内容,定于局部变量接受
+        var tag = document.getElementById('i1');
+        // 获取标签内部的内容
+        var content = tag.innerText;
+        var f = content.charAt(0);
+        var l = content.substring(1,content.length);
+        new_content = l + f;
+        tag.innerText = new_content;
+    }
+    setInterval('func()', 500);
+</script>
+</div>
+</body>
+</html>

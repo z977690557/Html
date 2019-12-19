@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MenuTest</title>
+    <style>
+        .hide{
+        display:none
+    }
+        .item .header{
+            height: 35px;
+            background-color: #2459a2;
+            color: white;
+            line-height: 35px;
+        }
+        .magin_left{
+            margin-left: 5px
+        }
+    </style>
+
+</head>
+<body>
+<!--左菜单-->
+<div style="float: left;background-color: greenyellow;width: 300px">
+    <div class="item">
+        <div id='i1' class="header" onclick="ChangeMenu('i1');">菜单  1</div>
+        <div class="content magin_left" >
+            <div>内容 1</div>
+            <div>内容 1</div>
+            <div>内容 1</div>
+        </div>
+    </div>
+
+    <div class="item">
+        <div id='i2' class="header" onclick="ChangeMenu('i2');">菜单  2</div>
+        <div class="content hide magin_left" >
+            <div>内容 2</div>
+            <div>内容 2</div>
+            <div>内容 2</div>
+        </div>
+    </div>
+
+    <div class="item">
+        <div id='i3' class="header" onclick="ChangeMenu('i3');">菜单 3</div>
+        <div class="content hide magin_left">
+            <div>内容 3</div>
+            <div>内容 3</div>
+            <div>内容 3</div>
+        </div>
+    </div>
+
+    <div class="item">
+        <div id='i4' class="header" onclick="ChangeMenu('i4');">菜单 4</div>
+        <div class="content hide magin_left">
+            <div>内容 4</div>
+            <div>内容 4</div>
+            <div>内容 4</div>
+        </div>
+    </div>
+
+</div>
+<!--右菜单-->
+<div style="background-color: greenyellow;width: 300px ;float: right; ">
+    <div class="item">
+        <div id='r1' class="header" onclick="ChangeMenu('r1');">菜单  1</div>
+        <div class="content magin_left" >
+            <div>内容 1</div>
+            <div>内容 1</div>
+            <div>内容 1</div>
+        </div>
+    </div>
+
+    <div class="item">
+        <div id='r2' class="header" onclick="ChangeMenu('r2');">菜单  2</div>
+        <div class="content hide magin_left" >
+            <div>内容 2</div>
+            <div>内容 2</div>
+            <div>内容 2</div>
+        </div>
+    </div>
+
+    <div class="item">
+        <div id='r3' class="header" onclick="ChangeMenu('r3');">菜单 3</div>
+        <div class="content hide magin_left">
+            <div>内容 3</div>
+            <div>内容 3</div>
+            <div>内容 3</div>
+        </div>
+    </div>
+
+    <div class="item">
+        <div id='r4' class="header" onclick="ChangeMenu('r4');">菜单 4</div>
+        <div class="content hide magin_left">
+            <div>内容 4</div>
+            <div>内容 4</div>
+            <div>内容 4</div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    function ChangeMenu(num) {
+        var current_menu = document.getElementById(num);
+        var item_list = current_menu.parentElement.parentElement.children;
+        for(var i=0;i<item_list.length;i++){
+            var current_item = item_list[i];
+            current_item.children[1].classList.add('hide');
+        }
+        current_menu.nextElementSibling.classList.remove('hide');
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="description" content="对话框、选择框">
+    <style>
+
+        .hide{
+            display: none;
+        }
+        .c1{
+            position: fixed;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            background-color: black;
+            opacity: 0.6;
+            z-index: 9;
+        }
+        .c2{
+            width: 500px;
+            height: 400px;
+            background-color: white;
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            margin-left: -250px;
+            margin-top: -200px;
+            z-index: 10;
+        }
+
+    </style>
+</head>
+<body>
+<div >
+    <input type="button" value="添加" onclick="addBox()">
+    <input type="button" value="全选" onclick="chooseAll()">
+    <input type="button" value="取消" onclick="cancelBox()">
+    <input type="button" value="反选" onclick="reverseChoose()">
+    <table >
+        <thead>
+            <tr>
+                <th>选择</th>
+                <th>主机名</th>
+                <th>端口</th>
+            </tr>
+        </thead>
+        <tbody id="tb_id">
+            <tr>
+                <td><input type="checkbox" placeholder=""></td>
+                <td>172.168.10.1</td>
+                <td>110</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" placeholder=""></td>
+                <td>172.168.10.2</td>
+                <td>119</td>
+            </tr>
+               <tr>
+                <td><input type="checkbox" placeholder=""></td>
+                <td>172.168.10.3</td>
+                <td>120</td>
+            </tr>
+        </tbody>
+    </table>
+    <!--打开遮挡层-->
+    <div id="z1" class="c1 hide"></div>
+    <!--弹框-->
+    <div id="z2" class="c2 hide">
+        <p style="margin-left: 10px"><input type="text" value="" placeholder=""></p>
+        <p style="margin-left: 10px"><input type="text" value="" placeholder=""></p>
+        <p style="margin-left: 10px"><input type="button" value="取消" onclick="hideModel()"></p>
+        <p style="margin-left: 10px"><input type="button" value="添加"></p>
+    </div>
+    <script>
+        function addBox() {
+            document.getElementById('z1').classList.remove('hide');
+            document.getElementById('z2').classList.remove('hide');
+        }
+        function hideModel() {
+            document.getElementById('z1').classList.add('hide');
+            document.getElementById('z2').classList.add('hide');
+        }
+        function chooseAll() {
+            var tbody = document.getElementById('tb_id');
+            var tr_list = tbody.children;
+            console.log("输出：",tr_list);
+            for(var i=0;i<tr_list.length;i++){
+                var current_tr = tr_list[i];
+                var checkbox = current_tr.children[0].children[0];
+                checkbox.checked = true;
+
+            }
+        }
+        function cancelBox() {
+            var tbody = document.getElementById('tb_id');
+            var tr_list = tbody.children;
+            for (var i = 0 ;i<tr_list.length;i++){
+                var current_tr = tr_list[i];
+                var checkbox = current_tr.children[0].children[0];
+                checkbox.checked = false;
+            }
+        }
+        function reverseChoose() {
+            var tbody = document.getElementById('tb_id');
+            var tr_list = tbody.children;
+            for (var i = 0; i < tr_list.length; i++) {
+                var current_tr = tr_list[i];
+                var checkbox = current_tr.children[0].children[0];
+                 // if(checkbox.checked){checkbox.checked = false;}else{checkbox.checked = true;}
+                if (checkbox.checked)
+                {
+                    checkbox.checked = false;
+                }
+                else
+                {
+                    checkbox.checked = true;
+                }
+
+            }
+        } 
+    </script>
+</div>
+</body>
+</html>

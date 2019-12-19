@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript</title>
+</head>
+<body>
+    <div id="i1">我是张晓雷</div>
+    <script type="text/javascript">
+        function func() {
+            var tag = document.getElementById('i1');
+            var content = tag.innerText;
+            var str = content.charAt(0);
+            var str2 = content.substring(1,content.length);
+            var new_content= str2 + str ;
+            // var new_content ;
+            // new_content  = str2 + str ;
+            tag.innerText = new_content;
+
+        }
+        setInterval("func()",1000);
+    </script>
+</body>
+</html>

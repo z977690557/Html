@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>51CTO.COM</title>
+    <style>
+        .bg-color{
+            position: fixed;
+            left: 0; top: 0;
+            right: 0;bottom: 0;
+            background-color: #f1f1f1;
+        }
+        .hide{
+            display: none
+        }
+        .cellphone_input{
+            border-radius: 4px;
+            border: darkgrey solid 1px;
+            width: 350px; height: 30px;
+            line-height: 30px;
+            position: relative;
+            margin: 0 auto;
+        }
+        .cellphone_div{
+            border-radius: 8px;
+            position: relative;
+            width: 350px;height: 30px;
+            background-color: #BFE7FA;
+            text-align: center;
+            margin: 0 auto;
+            margin-top: 40px;
+        }
+        .magin_1{
+            margin-left: 40%;
+            margin-top: 20px
+        }
+        .threeSolds{
+            background: url('Picture/threeSides.png')
+            no-repeat -289px -75px;
+        }
+
+        .login-way {
+            width: 350px;
+            height: 100px;
+            overflow: hidden;
+        }
+        .hidmail {
+            position: relative;
+            top: 3px;
+            /*left: 0;*/
+            width: 350px;
+            height: 20px;
+            border: 1px solid #dfe1e8;
+            /*background: white;*/
+            /*margin-left: 200px;*/
+            /*text-align: center;*/
+            margin:  auto;
+            display: none;
+            color: #6a6a6a;
+            z-index: 200;
+        }
+        .red_ts {
+            width: 300px;
+            height: 10px;
+            background-color: red;
+            color: #e2393b;
+            /*text-align: center;*/
+            padding-bottom: 5px;
+            /*float: left;*/
+            margin:0 auto;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div class="bg-color">
+    <div style="width: 70% ;height: 500px ;margin-left:
+    15%;margin-top: 20px;background-color: white ;border-radius: 8px;"  >
+        <h3 style="padding: 25px 0 0 25px ">手机号注册</h3>
+        <hr style="margin-left: 10px;margin-right: 10px;" >
+
+        <div class="cellphone_div">
+            <input class="cellphone_input" type="text" placeholder="请输入11位手机号">
+        </div>
+        <div id="cancle_div" class="hidmail"  onclick="cancle_div()" >
+        </div>
+        <span  class="red_ts">请您输入11位手机号</span>
+
+        <input type="checkbox" placeholder="" class="magin_1" >
+        <a>我已经认真阅读并同意</a> <a style="color: #0000cc">《51CTO服务条款》</a>
+        <input type="button" value="Register now" style="background-color: red;
+        width: 200px;height: 40px;line-height: 40px;font-size: 15px;color: white;"
+               class="magin_1">
+        <div style="margin-left: 35%;height: 180px;width: 350px;border:solid red 1px">
+            <p style="color: rebeccapurple;text-align: center">使用第三方账号</p>
+            <div class="login-way" style="background-color: azure">
+                <!--<a class="threeSolds" href="https://home.51cto.com/index?wxreg=1&amp;-->
+                <!--reback=https://edu.51cto.com/center-->
+                <!--/user/index/login-success?sign=-->
+                <!--af30BVYJVAkHVAVSBAdRUVVSBwpTVlFQVlVQVQtdRkJEQh0GJxxWfxJWcwdQQE0HVQVCVhtQCg9HVnIDVAYC&amp;-->
+                <!--client=web"></a>-->
+                <a style="background-image: url(Picture/threeSides.png)" href="/third-party/auth?type=qq"></a>
+                <a href="/third-party/auth?type=sina"></a>
+                <a href="/third-party/auth?type=github"></a>
+
+            </div>
+
+        </div>
+
+
+    </div>
+</div>
+<script>
+
+    function aaa(event) {
+    var $this = $(this),
+    method = $this.data('method'),
+    message = $this.data('confirm');
+        if (method === undefined && message === undefined) {
+        return true;
+        }
+
+        if (message !== undefined)
+        {
+            $.proxy(pub.confirm, this)(message, function() {
+              pub.handleAction($this, event);
+            });
+        } else
+        {
+            pub.handleAction($this, event);
+        }
+        event.stopImmediatePropagation();
+        return false;
+    }
+    function cancle_div() {
+        document.getElementById('cancle_div').classList.remove('hide')
+    }
+</script>
+</body>
+</html>
